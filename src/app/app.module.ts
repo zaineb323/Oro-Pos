@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 //import { FeatherIconsModule } from './feather-icons'; // Importez le module contenant i-feather
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
+import { OrderActionComponent } from './orders/order-action/order-action.component';
+import { ModalInfoComponent } from './modal/modal-info/modal-info.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     ActionsComponent,
     FiltersComponent,
     OrdersTableComponent,
+    OrderActionComponent,
+    ModalInfoComponent,
 
   ],
   imports: [
@@ -36,14 +41,22 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatButtonModule,
     MatMenuModule,
     MatTabsModule,
+    MatDialogModule
     //FeatherIconsModule
   ],
   providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+    {
+      provide: MAT_DIALOG_DATA,
+      useValue: {} // Ajoutez cette ligne pour fournir une valeur par défaut
+    },
     provideClientHydration(),
     provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Ajoutez ce schéma
-
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],// Ajoutez ce schéma
 })
 export class AppModule { }

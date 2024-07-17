@@ -2,7 +2,7 @@
   .trinta-card {
     &.all-courses-card {
       .mat-mdc-card-content {
-        .custom-tab-group {
+        .custom-tab-grp {
           display: flex; // Utilisez flex au lieu de block
           justify-content: center; // Centre les onglets dans le conteneur
           background-color: #e3e6e8;
@@ -36,12 +36,13 @@
               transition: background-color 0.3s, color 0.3s;
 
               &.mat-mdc-tab--active {
-                background-color: #ffa319; // Couleur de fond des onglets actifs
+                background-color: #b6190d; // Couleur de fond des onglets actifs en rouge
                 color: #fff; // Couleur du texte des onglets actifs
+
               }
 
               &:hover {
-                background-color: #ffa319; // Couleur de fond au survol
+                background-color: #b6190d; // Couleur de fond au survol en rouge
                 color: #fff; // Couleur du texte au survol
               }
             }

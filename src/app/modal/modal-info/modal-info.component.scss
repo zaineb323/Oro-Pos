@@ -1,0 +1,42 @@
+// Modal styles
+mat-dialog-title {
+  background-color: #ff5722; // Couleur orange typique de la pizza
+  color: #fff; // Texte blanc pour le titre
+  font-family: 'PizzaFont', sans-serif; // Assurez-vous d'importer une police qui s'harmonise avec le thème
+  text-align: center;
+  padding: 16px;
+  font-size: 24px;
+}
+
+mat-dialog-content {
+  background-color: #fff5e5; // Couleur de fond crème pour rappeler la pâte à pizza
+  color: #333; // Texte sombre pour une bonne lisibilité
+  padding: 16px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  border-radius: 8px; // Coins arrondis pour un look plus doux
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Ombre pour donner de la profondeur
+}
+
+mat-dialog-actions {
+  background-color: #ffebcd; // Couleur beige clair pour rappeler la croûte
+  padding: 8px;
+  text-align: right;
+  border-radius: 0 0 8px 8px; // Coins arrondis en bas pour un look uniforme avec le contenu
+}
+
+button[mat-button] {
+  background-color: #ff5722; // Couleur orange pour le bouton
+  color: #fff; // Texte blanc pour le bouton
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #e64a19; // Couleur légèrement plus sombre au survol
+  }
+}
