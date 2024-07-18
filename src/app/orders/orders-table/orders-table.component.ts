@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
@@ -9,8 +9,10 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
   styleUrls: ['./orders-table.component.scss']
 })
 export class OrdersTableComponent implements AfterViewInit {
+  @Output() rowSelected: EventEmitter<string> = new EventEmitter<string>();
   displayedColumns: string[] = ['Id', 'Token', 'Server', 'Created', 'Customer', 'Dadress', 'Ddate', 'Type', 'Status', 'Total', 'Due'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  selectedRowId: string | null = null;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -20,6 +22,14 @@ export class OrdersTableComponent implements AfterViewInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  selectRow(Id: string) {
+    this.selectedRowId = Id;
+    this.rowSelected.emit(Id);
+
+  }
+  isRowSelected(id: string): boolean {
+    return this.selectedRowId === id;
   }
 }
 
@@ -32,7 +42,10 @@ export interface PeriodicElement {
   Dadress: string;
   Ddate: string;
   Type: string;
-  Status: any;
+  Status: {
+    Open?: string;
+    Closed?: string;
+  };
   Total: string;
   Due: string;
 }

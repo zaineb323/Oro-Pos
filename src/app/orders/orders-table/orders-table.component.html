@@ -23,7 +23,8 @@
           <!-- Columns definitions... -->
           <ng-container matColumnDef="Id">
             <th mat-header-cell *matHeaderCellDef class="text-primary pl-0"> Id </th>
-            <td mat-cell *matCellDef="let element" class="text-primary fw-medium pl-0"> {{element.Id}} </td>
+            <td mat-cell *matCellDef="let element" class="text-primary fw-medium pl-0" (click)="selectRow(element.Id)">
+              {{element.Id}} </td>
           </ng-container>
           <ng-container matColumnDef="Token">
             <th mat-header-cell *matHeaderCellDef> Token </th>
@@ -80,7 +81,9 @@
             <td mat-cell *matCellDef="let element"> {{element.Due}} </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row.Id)"
+            [class.selected-row]="isRowSelected(row.Id)"></tr>
+
         </table>
       </div>
       <mat-paginator [pageSizeOptions]="[5, 10, 15]"></mat-paginator>

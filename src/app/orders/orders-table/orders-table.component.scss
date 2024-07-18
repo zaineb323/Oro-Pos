@@ -51,6 +51,11 @@
           &:hover {
             background-color: #ffa319; // Change this to the color you want
           }
+
+          &.selected-row {
+            background-color: #ffa319 !important;
+            ; // Adjust the color to match your pizza theme
+          }
         }
 
         .mat-mdc-cell {
@@ -118,8 +123,6 @@
       .mat-mdc-paginator {
         padding-top: 15px;
       }
-
-      ///////////////////////////////////////////////////////
 
       .trinta-badge {
         font-size: 11px;

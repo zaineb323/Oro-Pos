@@ -1,28 +1,47 @@
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 800px;
+  height: 600px;
+  outline: 0;
+  background-color: #ffffff;
+  border-radius: 8px; // Ajout de coins arrondis
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Ajout d'une ombre pour donner de la profondeur
+}
+
 // Modal styles
 mat-dialog-title {
-  background-color: #ff5722; // Couleur orange typique de la pizza
-  color: #fff; // Texte blanc pour le titre
-  font-family: 'PizzaFont', sans-serif; // Assurez-vous d'importer une police qui s'harmonise avec le thème
-  text-align: center;
+  color: #131212; // Texte noir pour le titre
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; // Police plus sobre
+  text-align: left; // Aligner à gauche
   padding: 16px;
   font-size: 24px;
+  margin-bottom: 0;
+
 }
 
 mat-dialog-content {
-  background-color: #fff5e5; // Couleur de fond crème pour rappeler la pâte à pizza
-  color: #333; // Texte sombre pour une bonne lisibilité
+  background-color: #fff; // Fond blanc
+  color: #030303; // Texte noir pour une meilleure lisibilité
   padding: 16px;
   font-family: 'Arial', sans-serif;
   font-size: 16px;
-  border-radius: 8px; // Coins arrondis pour un look plus doux
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Ombre pour donner de la profondeur
+  max-height: 70vh; // Hauteur maximale de la modal
+  overflow-y: auto; // Défilement vertical si le contenu dépasse la hauteur maximale
+  background-image: url('/assets/images/imgAction.jpg');
+
 }
 
 mat-dialog-actions {
-  background-color: #ffebcd; // Couleur beige clair pour rappeler la croûte
+  background-color: #fff; // Fond blanc
   padding: 8px;
   text-align: right;
   border-radius: 0 0 8px 8px; // Coins arrondis en bas pour un look uniforme avec le contenu
+  display: flex;
+  justify-content: space-between;
 }
 
 button[mat-button] {
@@ -30,13 +49,111 @@ button[mat-button] {
   color: #fff; // Texte blanc pour le bouton
   border: none;
   border-radius: 4px;
-  padding: 8px 16px;
+  padding: 16px 16px;
   font-family: 'Arial', sans-serif;
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
+  padding: 15px 30px;
 
   &:hover {
     background-color: #e64a19; // Couleur légèrement plus sombre au survol
   }
+}
+
+:host {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed #ccc;
+  // text-align: center;
+
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .item-details {
+    flex-grow: 1;
+    //text-align: center;
+
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 14px;
+      margin: 9px 0;
+      color: #696464;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center; // Centrer le texte des éléments de la liste
+
+      li {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .item-price {
+    display: flex;
+    align-items: center;
+
+    p {
+      font-size: 16px;
+      font-weight: bold;
+      margin-right: 10px;
+      color: #000;
+    }
+
+    .remove-btn {
+      color: #ff0000;
+    }
+  }
+}
+
+.total-price {
+  text-align: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 10px 0;
+  color: #000;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    margin: 0 9px;
+  }
+}
+
+/* Style modal */
+.modal-dialog {
+  max-width: 800px;
+  width: 800px;
+  height: 600px;
 }

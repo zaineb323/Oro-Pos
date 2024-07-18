@@ -10,19 +10,29 @@ import { ModalInfoComponent } from '../../modal/modal-info/modal-info.component'
 export class OrderActionComponent {
   @Output() tabChanged: EventEmitter<string> = new EventEmitter<string>();
   /////////////
+  selectedRowId: string | null = null;
 
   constructor(private dialog: MatDialog) { }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ModalInfoComponent, {
-      width: '300px',
-      data: { /* données à passer à la modal si nécessaire */ }
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('La modal a été fermée');
-    });
+  onRowSelected(Id: string): void {
+    this.selectedRowId = Id;
   }
+  openDialog(): void {
+    if (this.selectedRowId) {
+      const dialogRef = this.dialog.open(ModalInfoComponent, {
+        width: '300px',
+        data: { id: this.selectedRowId }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+    } else {
+      alert('No row selected');
+    }
+  }
+
   ///////////
 
   onTabChange(event: any) {

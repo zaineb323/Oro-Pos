@@ -5,6 +5,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 //import { FeatherIconsModule } from './feather-icons'; // Importez le module contenant i-feather
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,7 +42,8 @@ import { ModalInfoComponent } from './modal/modal-info/modal-info.component';
     MatButtonModule,
     MatMenuModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
     //FeatherIconsModule
   ],
   providers: [
